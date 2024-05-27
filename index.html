@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookMark</title>
+    <!----- font awesem ----->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!----- bootstrap ----->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!----- main css ----->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <section class="home py-3 vh-100 overflow-y-scroll">
+    <div class="container py-2">
+      <!-- inputs -->
+      <div class="contint text-center py-5">
+        <h1>Bookmarker</h1>
+        <p class="p-2">
+          <i class="fa-solid fa-bookmark text-success"></i> Bookmark your
+          favorite sites
+          <i class="fa-solid fa-bookmark text-success"></i>
+        </p>
+        <!-- input name -->
+        <div>
+          <label
+            class="text-start mt-4 my-1 d-block fs-5 fw-bold"
+            for="sitName"
+          >
+            <i class="fa-solid fa-floppy-disk"></i> Site Name</label
+          >
+          <input
+            required
+            oninput="validatInputs (this)"
+            id="sitName"
+            class="form-control m-auto"
+            type="text"
+          />
+          <div
+            id="alertName"
+            class="alert alert-danger d-none py-1 w-100 rounded-3 mt-2"
+          >
+            <small class="fs-6 fw-bold"
+              >The first letter must be written as a capital letter</small
+            >
+          </div>
+        </div>
+        <!-- input url -->
+        <div>
+          <label class="text-start mt-4 my-1 d-block fs-5 fw-bold" for="sitURL">
+            <i class="fa-solid fa-link mx-2"></i>Site URL</label
+          >
+          <input
+            oninput="validatInputs (this)"
+            id="sitURL"
+            class="form-control m-auto"
+            type="text"
+          />
+          <div
+            id="alertURL"
+            class="alert alert-danger d-none py-1 w-100 rounded-3 mt-2"
+          >
+            <small class="fs-6 fw-bold"
+              >The link must start with https://
+            </small>
+          </div>
+        </div>
+        <!-- buttn add -->
+        <button
+          data-bs-target="#exampleModalToggle"
+          data-bs-toggle="modal"
+          id="buttonid"
+          onclick="addSite()"
+          class="mt-4 btn btn-outline-success px-5 py-2 fw-bold disabled"
+        >
+          Submit
+        </button>
+        <!-- model add succssfly  -->
+        <div
+          class="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-success">
+                <h1 class="fs-5" id="exampleModalToggleLabel">Bookmarker</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <div class="modal-body">
+                <i class="fa-solid fa-check fs-2 rounded-circle"></i>
+                <p class="py-3 fs-4 border-0">
+                  The link has been added successfully
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- display data -->
+    <div class="display-data my-0">
+      <div class="container">
+        <table class="w-100 text-center">
+          <thead>
+            <tr>
+              <th class="py-2">Index</th>
+              <th>Site Name</th>
+              <th>Visit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="bodyData"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
